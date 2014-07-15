@@ -30,4 +30,4 @@ benchmark linspaceBench
   type: exitcode-stdio-1.0
   main-is: linspaceBench.hs
   build-depends: base, repa, mtl, vector, time
-  ghc-options:         -Odph -rtsopts -threaded -fno-liberate-case -funfolding-use-threshold1000 -funfolding-keeness-factor1000 -fllvm -optlo-O3
+  ghc-options:         -Odph -rtsopts -threaded -fno-liberate-case -funfolding-use-threshold1000 -funfolding-keeness-factor1000 -fllvm -optlo-O3 -with-rtsopts=-N
