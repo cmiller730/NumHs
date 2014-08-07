@@ -17,7 +17,7 @@ cabal-version:       >=1.8
 library
   Include-dirs: /home/cmiller/usr/local/include
   Includes: cblas.h
-  exposed-modules:     Numeric.Interpolate.Spline, Numeric.Core.Array, Foreign.BLAS.Level1
+  exposed-modules:     Numeric.Interpolate.Spline, Numeric.Core.Array, Foreign.BLAS.CBlasEnums, Foreign.BLAS.Level1, Foreign.BLAS.Level2
   -- other-modules:       
   build-depends:       base ==4.6.*, repa, mtl, monad-loops, vector
   ghc-options:         -Odph -rtsopts -threaded -fno-liberate-case -funfolding-use-threshold1000 -funfolding-keeness-factor1000 -fllvm -optlo-O3

@@ -1,11 +1,6 @@
 {-# LANGUAGE ForeignFunctionInterface #-}
 
 module Foreign.BLAS.Level1 (
-  CBLAS_ORDER,
-  CBLAS_TRANSPOSE,
-  CBLAS_UPLO,
-  CBLAS_DIAG,
-  CBLAS_SIDE,
   cblasSdsdot,
   cblasDsdot,
   cblasSdot,
@@ -35,19 +30,8 @@ module Foreign.BLAS.Level1 (
 
 import Foreign.C
 import Foreign.Ptr
-import Foreign.ForeignPtr
 
 #include <cblas.h>
-
-{#enum CBLAS_ORDER {} deriving (Show,Eq) #}
-
-{#enum CBLAS_TRANSPOSE {} deriving (Show,Eq) #}
-
-{#enum CBLAS_UPLO {} deriving (Show,Eq) #}
-
-{#enum CBLAS_DIAG {} deriving (Show,Eq) #}
-
-{#enum CBLAS_SIDE {} deriving (Show,Eq) #}
 
 {#fun cblas_sdsdot as ^ { `Int', `Float',  castPtr `Ptr Float', `Int', castPtr `Ptr Float', `Int' } -> `Float' #}
 
