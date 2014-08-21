@@ -22,7 +22,17 @@ module Foreign.BLAS.Level2 (
   cblasStbsv,
   cblasDtbsv,
   cblasStpmv,
-  cblasDtpmv
+  cblasDtpmv,
+  cblasStpsv,
+  cblasDtpsv,
+  cblasSsymv,
+  cblasDsymv,
+  cblasSspmv,
+  cblasDspmv,
+  cblasSspr,
+  cblasDspr,
+  cblasSspr2,
+  cblasDspr2
    ) where
 
 import Foreign.C
@@ -77,3 +87,25 @@ enumToCInt = fromIntegral . fromEnum
 {#fun cblas_stpmv as ^ { enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', enumToCInt `CBLAS_TRANSPOSE', enumToCInt `CBLAS_DIAG', `Int', castPtr `Ptr Float', castPtr `Ptr Float', `Int'} -> `()' #}
 
 {#fun cblas_dtpmv as ^ { enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', enumToCInt `CBLAS_TRANSPOSE', enumToCInt `CBLAS_DIAG', `Int', castPtr `Ptr Double', castPtr `Ptr Double', `Int'} -> `()' #}
+
+{#fun cblas_stpsv as ^ { enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', enumToCInt `CBLAS_TRANSPOSE', enumToCInt `CBLAS_DIAG', `Int', castPtr `Ptr Float', castPtr `Ptr Float', `Int'} -> `()' #}
+
+{#fun cblas_dtpsv as ^ { enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', enumToCInt `CBLAS_TRANSPOSE', enumToCInt `CBLAS_DIAG', `Int', castPtr `Ptr Double', castPtr `Ptr Double', `Int'} -> `()' #}
+
+{# fun cblas_ssymv as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Float', castPtr `Ptr Float', `Int', castPtr `Ptr Float', `Int', `Float', castPtr `Ptr Float', `Int'} -> `()' #}
+
+{# fun cblas_dsymv as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Double', castPtr `Ptr Double', `Int', castPtr `Ptr Double', `Int', `Double', castPtr `Ptr Double', `Int'} -> `()' #}
+
+{# fun cblas_sspmv as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Float', castPtr `Ptr Float', castPtr `Ptr Float', `Int', `Float', castPtr `Ptr Float', `Int'} -> `()' #}
+
+{# fun cblas_dspmv as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Double', castPtr `Ptr Double', castPtr `Ptr Double', `Int', `Double', castPtr `Ptr Double', `Int'} -> `()' #}
+
+{# fun cblas_sspr as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Float', castPtr `Ptr Float'
+, `Int', castPtr `Ptr Float'} -> `()' #}
+
+{# fun cblas_dspr as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Double', castPtr `Ptr Double'
+, `Int', castPtr `Ptr Double'} -> `()' #}
+
+{# fun cblas_sspr2 as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Float', castPtr `Ptr Float', `Int', castPtr `Ptr Float', `Int', castPtr `Ptr Float'} -> `()' #}
+
+{# fun cblas_dspr2 as ^ {enumToCInt `CBLAS_ORDER', enumToCInt `CBLAS_UPLO', `Int', `Double', castPtr `Ptr Double', `Int', castPtr `Ptr Double', `Int', castPtr `Ptr Double'} -> `()' #}
